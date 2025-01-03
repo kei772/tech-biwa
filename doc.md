@@ -48,12 +48,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ola | システム開発・AI導入・技術研修</title>
+  <title>tec-biwa | システム開発・AI導入・技術研修</title>
   <meta name="description" content="システム開発からAI導入、実践的な技術研修まで、個人事業主ならではのスピード感でサポート。最新の生成AI技術を活用してビジネスを加速させます。">
   <!-- 追加でキーワード指定したい場合は下記のように -->
   <!-- <meta name="keywords" content="システム開発, AI導入, 技術研修, 生成AI, ChatGPT, ..."> -->
 
-  <meta property="og:title" content="ola | システム開発・AI導入・技術研修" />
+  <meta property="og:title" content="tec-biwa | システム開発・AI導入・技術研修" />
   <meta property="og:description" content="システム開発からAI導入、実践的な技術研修まで、個人事業主ならではのスピード感でサポート。最新の生成AI技術を活用してビジネスを加速させます。" />
   <meta property="og:image" content="https://example.com/ogp.png" />
   <meta property="og:url" content="https://example.com/" />
@@ -74,7 +74,7 @@
           <circle cx="20" cy="20" r="18" class="logo-circle" />
           <path d="M12 20L18 26L28 14" class="logo-check" stroke-width="3" fill="none"/>
         </svg>
-        <span>ola</span>
+        <span>tec-biwa</span>
       </div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -287,14 +287,14 @@
 
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-logo">ola</div>
+      <div class="footer-logo">tec-biwa</div>
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-copyright">
-        © 2024 ola. All rights reserved.
+        © 2024 tec-biwa. All rights reserved.
       </div>
     </div>
   </footer>
