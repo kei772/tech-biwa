@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <title>ola | システム開発・AI導入・技術研修</title>
+    <meta name="description" content="システム開発からAI導入、実践的な技術研修まで、個人事業主ならではのスピード感でサポート。最新の生成AI技術を活用してビジネスを加速させます。">
+    <meta name="keywords" content="システム開発, AI導入, 技術研修, 生成AI, ChatGPT">
+    <meta property="og:title" content="ola | システム開発・AI導入・技術研修" />
+    <meta property="og:description" content="システム開発からAI導入、実践的な技術研修まで、個人事業主ならではのスピード感でサポート。最新の生成AI技術を活用してビジネスを加速させます。" />
+    <meta property="og:image" content="https://example.com/ogp.png" />
+    <meta property="og:url" content="https://example.com/" />
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav" aria-label="メインナビゲーション">
+            <div class="logo">
+                <img src="icon.png" alt="ola" class="logo-icon">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-choose">Why Choose Us?</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <div class="theme-toggle">
+                    <button class="theme-button" aria-label="カラーテーマを切り替え">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+                <button class="menu-toggle" aria-label="メニューを開閉">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-menu" aria-hidden="true">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-choose">Why Choose Us?</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="mainContent">
+        <section id="hero">
+            <canvas id="heroCanvas" aria-hidden="true"></canvas>
+            <div class="hero-background" aria-hidden="true">
+                <div class="gradient-sphere"></div>
+                <div class="gradient-sphere secondary"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">最先端テクノロジーで<br>ビジネスを加速</h1>
+                <p class="hero-subtitle">システム開発・AI導入・技術研修を<br>
+                個人事業主ならではのスピード感でサポート</p>
+                <a href="https://docs.google.com/forms/d/1UWWehrs7Z_MPH3QVjMA6ivZ0ApJJo6AP4HA5FPbDdUs/viewform"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="cta-button">
+                    <span>お問い合わせはこちら</span>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="scroll-indicator" aria-hidden="true">
+                <span class="scroll-text">Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-content">
+                <h2 class="section-title">About</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>フルスタックエンジニアとしての経験と、最新のAI技術への深い理解を活かし、
+                        お客様のビジネスの成長をサポートいたします。</p>
+                        <p>大手企業からスタートアップまで、様々な規模・業界のプロジェクトに
+                        携わってきた経験を基に、最適なソリューションをご提案します。</p>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h4>技術スキル</h4>
+                            <p>フルスタック開発とAI技術の知見を活かした最適なソリューション提案</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>柔軟な対応</h4>
+                            <p>個人事業主ならではの迅速な意思決定とコミュニケーション</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">💻</div>
+                        <h3>システム開発</h3>
+                        <p>要件定義から運用保守まで、フルスタックな開発支援を提供します。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">🤖</div>
+                        <h3>AI導入支援</h3>
+                        <p>ChatGPTなど生成AIの導入による業務効率化をサポートします。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" aria-hidden="true">📚</div>
+                        <h3>技術研修</h3>
+                        <p>実践的なプログラミング・AI活用の研修プログラムを提供します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <ul class="why-list">
+                    <li>
+                        <h4>個人事業主ならではのスピード感</h4>
+                        <p>社内稟議や大きな組織構造がない分、最短で提案・開発・修正を進められます。</p>
+                    </li>
+                    <li>
+                        <h4>深い技術力と柔軟な思考</h4>
+                        <p>フルスタックな開発経験と最新の生成AI技術を組み合わせ、現場ごとに最適化します。</p>
+                    </li>
+                    <li>
+                        <h4>ハンズオンでのサポート</h4>
+                        <p>企業研修や導入後のアフターケアなど、現場でのフォローを大切にしています。</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="section-content">
+                <h2 class="section-title">FAQ</h2>
+                <div class="faq-qa">
+                    <div class="faq-item">
+                        <h4>Q. 開発の期間はどれくらいですか？</h4>
+                        <p>A. プロジェクトの規模や内容により異なりますが、小規模であれば1〜2ヶ月、
+                            大規模でも4〜6ヶ月ほどを目安にお考えください。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Q. 料金の目安を教えてください</h4>
+                        <p>A. 要件によりますが、個人事業主だからこその柔軟な価格設定が可能です。<br>
+                            まずはお気軽にお問い合わせください。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Q. オンラインでの打ち合わせは可能ですか？</h4>
+                        <p>A. はい、ZoomやGoogle Meetなどで対応いたします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-section">
+                    <p class="contact-intro">
+                        お問い合わせやご相談はお気軽にどうぞ。<br>
+                        下記のボタンからお問い合わせフォームにアクセスしてください。
+                    </p>
+                    <a href="https://docs.google.com/forms/d/1UWWehrs7Z_MPH3QVjMA6ivZ0ApJJo6AP4HA5FPbDdUs/viewform"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="contact-button">
+                        <span>お問い合わせフォームを開く</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">ola</div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/ola_jp_ai" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://note.com/muccccchiiii" target="_blank" rel="noopener noreferrer" aria-label="note">
+                    <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.5 2h-13A3.5 3.5 0 002 5.5v13A3.5 3.5 0 005.5 22h13a3.5 3.5 0 003.5-3.5v-13A3.5 3.5 0 0018.5 2zM12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zm0-9.5a4 4 0 100 8 4 4 0 000-8z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 ola. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/animation.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>
