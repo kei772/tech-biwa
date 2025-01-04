@@ -68,6 +68,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
 }
 
 #heroCanvas {
@@ -76,13 +87,30 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 20;
     text-align: center;
+    pointer-events: none;
+    mix-blend-mode: normal;
+}
+
+.hero-content * {
+    mix-blend-mode: normal;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-title {
@@ -90,18 +118,17 @@ body {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    opacity: 0;
-    transform: translateY(30px);
     letter-spacing: -0.02em;
+    color: var(--text-color);
+    animation: slideIn 4s cubic-bezier(0.12, 0.7, 0.3, 1) 0.5s both;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     line-height: 1.8;
     margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateY(30px);
     color: var(--text-color-light);
+    animation: slideIn 4s cubic-bezier(0.12, 0.7, 0.3, 1) 0.8s both;
 }
 
 .cta-button {
@@ -144,7 +171,7 @@ body {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 20;
     opacity: 0;
 }
 
@@ -226,6 +253,7 @@ body {
     background: var(--bg-card);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+    border-radius: 16px;
 }
 
 .feature-item:hover {
@@ -253,7 +281,7 @@ body {
 .service-card {
     padding: 2rem;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 16px;
     transition: all 0.3s ease;
     background: var(--bg-card);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -309,7 +337,7 @@ body {
     margin: 0 auto;
     padding: 2rem;
     background: var(--bg-card);
-    border-radius: 8px;
+    border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -684,7 +712,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 0;
+    z-index: 1;
 }
 
 .gradient-sphere {
@@ -718,7 +746,7 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
@@ -745,7 +773,7 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 16px;
 }
 
 .faq-item h4 {
@@ -916,33 +944,43 @@ textarea::placeholder {
     }
 }
 
-/* ダークモード */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #0f172a;
-        --text-color: #f3f4f6;
-        --text-color-light: #9ca3af;
-        --gray-light: #1e293b;
-        --gray-medium: #64748b;
-        --gray-dark: #94a3b8;
-        --bg-card: #1e293b;
-        --border-color: #334155;
-    }
+/* テーマ切り替えシステム */
+:root {
+    --primary-color: #fff;
+    --text-color: #1f2937;
+    --text-color-light: #4b5563;
+    --gray-light: #f3f4f6;
+    --gray-medium: #9ca3af;
+    --gray-dark: #4b5563;
+    --bg-card: #fff;
+    --border-color: #e5e7eb;
+}
 
-    .header {
-        background: rgba(15, 23, 42, 0.9);
-        border-bottom: 1px solid var(--border-color);
-    }
+[data-theme="dark"] {
+    --primary-color: #0f172a;
+    --text-color: #f3f4f6;
+    --text-color-light: #9ca3af;
+    --gray-light: #1e293b;
+    --gray-medium: #64748b;
+    --gray-dark: #94a3b8;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+}
 
-    .gradient-sphere {
-        opacity: 0.15;
-    }
+[data-theme="dark"] .header {
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--border-color);
+}
 
-    input, textarea {
-        background: var(--bg-card) !important;
-        border-color: var(--border-color) !important;
-        color: var(--text-color) !important;
-    }
+[data-theme="dark"] .gradient-sphere {
+    opacity: 0.15;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
 }
 
 /* テーマ切り替えボタン */
@@ -977,39 +1015,42 @@ textarea::placeholder {
     display: none;
 }
 
-html[data-theme="dark"] .sun-icon {
+[data-theme="dark"] .sun-icon {
     display: none;
 }
 
-html[data-theme="dark"] .moon-icon {
+[data-theme="dark"] .moon-icon {
     display: block;
 }
 
-html[data-theme="dark"] {
-    --primary-color: #0f172a;
-    --text-color: #f3f4f6;
-    --text-color-light: #9ca3af;
-    --gray-light: #1e293b;
-    --gray-medium: #64748b;
-    --gray-dark: #94a3b8;
-    --bg-card: #1e293b;
-    --border-color: #334155;
-}
+/* 初期テーマ設定 */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --primary-color: #0f172a;
+        --text-color: #f3f4f6;
+        --text-color-light: #9ca3af;
+        --gray-light: #1e293b;
+        --gray-medium: #64748b;
+        --gray-dark: #94a3b8;
+        --bg-card: #1e293b;
+        --border-color: #334155;
+    }
 
-html[data-theme="dark"] .header {
-    background: rgba(15, 23, 42, 0.9);
-    border-bottom: 1px solid var(--border-color);
-}
+    :root:not([data-theme]) .header {
+        background: rgba(15, 23, 42, 0.9);
+        border-bottom: 1px solid var(--border-color);
+    }
 
-html[data-theme="dark"] .gradient-sphere {
-    opacity: 0.15;
-}
+    :root:not([data-theme]) .gradient-sphere {
+        opacity: 0.15;
+    }
 
-html[data-theme="dark"] input,
-html[data-theme="dark"] textarea {
-    background: var(--bg-card) !important;
-    border-color: var(--border-color) !important;
-    color: var(--text-color) !important;
+    :root:not([data-theme]) input,
+    :root:not([data-theme]) textarea {
+        background: var(--bg-card) !important;
+        border-color: var(--border-color) !important;
+        color: var(--text-color) !important;
+    }
 }
 
 @media (max-width: 768px) {

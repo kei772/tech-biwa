@@ -1,95 +1,106 @@
-class ParticleAnimation {
-    constructor() {
-        this.canvas = document.getElementById('heroCanvas');
-        this.setup();
-        this.createParticles();
-        this.animate();
-        this.addMouseInteraction();
-    }
+// Three.jsのセットアップ
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('heroCanvas'),
+    alpha: true,
+    antialias: true
+});
 
-    setup() {
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer({
-            canvas: this.canvas,
-            antialias: true,
-            alpha: true
-        });
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.camera.position.z = 5;
-        this.mouse = new THREE.Vector2();
-    }
+// レンダラーの設定
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 
-    addMouseInteraction() {
-        document.addEventListener('mousemove', (event) => {
-            this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-        });
-    }
+// パーティクルの設定
+const particlesGeometry = new THREE.BufferGeometry();
+const particlesCount = 1000;
+const posArray = new Float32Array(particlesCount * 3);
 
-    createParticles() {
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 1500;
-        const posArray = new Float32Array(particlesCount * 3);
-
-        for(let i = 0; i < particlesCount * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 10;
-        }
-
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.005,
-            color: 0x6366f1
-        });
-
-        this.particles = new THREE.Points(particlesGeometry, particlesMaterial);
-        this.scene.add(this.particles);
-    }
-
-    animate() {
-        requestAnimationFrame(this.animate.bind(this));
-        this.particles.rotation.y += 0.0005;
-        this.particles.rotation.x += 0.0005;
-
-        const targetX = this.mouse.x * 0.2;
-        const targetY = this.mouse.y * 0.2;
-        this.particles.rotation.x += (targetY - this.particles.rotation.x) * 0.05;
-        this.particles.rotation.y += (targetX - this.particles.rotation.y) * 0.05;
-
-        this.renderer.render(this.scene, this.camera);
-    }
+for (let i = 0; i < particlesCount * 3; i++) {
+    posArray[i] = (Math.random() - 0.5) * 5;
 }
 
-// ヒーローセクションのアニメーション
-document.addEventListener('DOMContentLoaded', () => {
-    new ParticleAnimation();
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-    // テキストアニメーション
-    gsap.to('.hero-title', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.5
-    });
+// パーティクルのマテリアル
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.005,
+    color: '#7c3aed',
+    transparent: true,
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending
+});
 
-    gsap.to('.hero-subtitle', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.8
-    });
+// パーティクルメッシュの作成
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+scene.add(particlesMesh);
 
-    gsap.to('.cta-button', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 1.1
-    });
+// カメラの位置設定
+camera.position.z = 3;
 
-    gsap.to('.scroll-indicator', {
-        opacity: 1,
-        duration: 1,
-        delay: 1.4
-    });
+// マウス座標の取得
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener('mousemove', (event) => {
+    mouseX = event.clientX / window.innerWidth - 0.5;
+    mouseY = event.clientY / window.innerHeight - 0.5;
+});
+
+// アニメーションループ
+function animate() {
+    requestAnimationFrame(animate);
+
+    // パーティクルの回転
+    particlesMesh.rotation.y += 0.001;
+    particlesMesh.rotation.x += 0.001;
+
+    // マウス位置に応じたカメラの動き
+    camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.05;
+    camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.05;
+
+    renderer.render(scene, camera);
+}
+
+// ウィンドウリサイズ対応
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// アニメーション開始
+animate();
+
+// ヒーロータイトルのアニメーション
+gsap.from('.hero-title', {
+    duration: 1.2,
+    y: 100,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 0.5
+});
+
+gsap.from('.hero-subtitle', {
+    duration: 1.2,
+    y: 50,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 0.8
+});
+
+gsap.from('.cta-button', {
+    duration: 1.2,
+    y: 30,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 1.1
+});
+
+gsap.to('.scroll-indicator', {
+    duration: 1,
+    opacity: 1,
+    y: 0,
+    ease: 'power2.out',
+    delay: 2
 });
