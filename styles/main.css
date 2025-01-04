@@ -56,6 +56,7 @@ body {
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-links a:hover {
@@ -508,6 +509,7 @@ body {
     color: var(--gray-dark);
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .footer-links a:hover {
@@ -786,6 +788,13 @@ body {
     border: 1px solid var(--border-color);
     padding: 2rem;
     border-radius: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .faq-item h4 {
