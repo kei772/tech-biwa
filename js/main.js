@@ -5,14 +5,12 @@ const htmlElement = document.documentElement;
 
 // 現在のテーマを取得
 function getCurrentTheme() {
-    return localStorage.getItem('theme') ||
-           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    return htmlElement.getAttribute('data-theme') || 'light';
 }
 
 // テーマを適用
 function applyTheme(theme) {
     htmlElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
 }
 
 // テーマ切り替え
@@ -24,8 +22,7 @@ function toggleTheme() {
 
 // 初期テーマ設定
 function initializeTheme() {
-    const theme = getCurrentTheme();
-    applyTheme(theme);
+    applyTheme('light');
 }
 
 // イベントリスナー設定
@@ -45,8 +42,23 @@ function preserveSectionVisibility() {
     });
 }
 
+// モバイルメニュー初期化
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+}
+
 // 初期化
 initializeTheme();
+initMobileMenu();
 
 // スクロールイベントリスナー
 function handleScroll() {
@@ -69,10 +81,17 @@ window.addEventListener('load', () => {
 // スクロール時にセクション表示を更新
 window.addEventListener('scroll', handleScroll);
 
-// テーマ切り替え時にセクション表示状態を保持
+// テーマ切り替え時の処理
 themeButton?.addEventListener('click', () => {
     setTimeout(() => {
         preserveSectionVisibility();
         handleScroll();
     }, 100);
+});
+
+// システムのカラーモード変更を監視
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
 });
