@@ -1,4 +1,4 @@
-# tec-biwa
+# tech-biwa
 
 システム開発・AI導入・技術研修を提供する企業のランディングページです。
 
@@ -33,4 +33,4 @@
 
 ## ライセンス
 
-© 2024 tec-biwa. All rights reserved.
+© 2024 tech-biwa. All rights reserved.
