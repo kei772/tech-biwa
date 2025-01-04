@@ -53,6 +53,16 @@ function initMobileMenu() {
             mobileMenu.classList.toggle('active');
             document.body.classList.toggle('menu-open');
         });
+
+        // モバイルメニュー内のリンクをクリックした時にメニューを閉じる
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
     }
 }
 
