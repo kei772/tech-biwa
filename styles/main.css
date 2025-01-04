@@ -521,7 +521,11 @@ body {
     }
 
     .section {
-        padding: 3rem 1rem;
+        padding: 4rem 1.5rem;
+    }
+
+    .section-content {
+        padding: 0 1rem;
     }
 
     .hero-title {
@@ -604,6 +608,41 @@ body {
 
     .nav {
         padding: 0;
+    }
+
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: auto;
+    }
+
+    .theme-toggle {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .theme-button {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 50%;
+        background: var(--gray-light);
+    }
+
+    .mobile-menu {
+        padding: 1.5rem;
+    }
+
+    .hero-content {
+        padding: 0 1.5rem;
+    }
+
+    .about-text,
+    .services-grid,
+    .why-list,
+    .faq-qa {
+        padding: 0 1rem;
     }
 }
 
@@ -773,10 +812,7 @@ textarea::placeholder {
     }
 
     .hero-subtitle {
-        font-size: 1.125rem;
-        br {
-            display: none;
-        }
+        font-size: 1.25rem;
     }
 
     .cta-button {

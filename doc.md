@@ -195,7 +195,7 @@
           </div>
           <div class="service-card">
             <div class="service-icon" aria-hidden="true">📚</div>
-            <h3>技術研修</h3>
+            <h3>生成AI導入研修</h3>
             <p>実践的なプログラミング・AI活用の研修プログラムを提供します。</p>
           </div>
         </div>
