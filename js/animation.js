@@ -89,7 +89,7 @@ gsap.from('.hero-subtitle', {
     delay: 0.8
 });
 
-gsap.from('.cta-button', {
+gsap.from('.contact-button', {
     duration: 1.2,
     y: 30,
     opacity: 0,
