@@ -23,16 +23,18 @@ export function Header() {
     { name: "Contact", href: "contact" },
   ]
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = async (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
+      // スクロールアニメーションの完了を待つ（約500ms）
+      await new Promise(resolve => setTimeout(resolve, 500))
     }
   }
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    scrollToSection(href)
+    await scrollToSection(href)
     setIsOpen(false)
   }
 
