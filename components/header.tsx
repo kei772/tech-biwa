@@ -23,21 +23,16 @@ export function Header() {
     { name: "Contact", href: "contact" },
   ]
 
-  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
-    e.preventDefault()
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      const offset = 80 // ヘッダーの高さ分を考慮
-      const bodyRect = document.body.getBoundingClientRect().top
-      const elementRect = element.getBoundingClientRect().top
-      const elementPosition = elementRect - bodyRect
-      const offsetPosition = elementPosition - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
+      element.scrollIntoView({ behavior: 'smooth' })
     }
+  }
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    scrollToSection(href)
     setIsOpen(false)
   }
 
@@ -54,7 +49,7 @@ export function Header() {
                 <a
                   key={item.name}
                   href={`#${item.href}`}
-                  onClick={(e) => scrollToSection(item.href, e)}
+                  onClick={(e) => handleClick(e, item.href)}
                   className="text-sm font-medium transition-colors hover:text-primary"
                 >
                   {item.name}
@@ -90,7 +85,7 @@ export function Header() {
                     <a
                       key={item.name}
                       href={`#${item.href}`}
-                      onClick={(e) => scrollToSection(item.href, e)}
+                      onClick={(e) => handleClick(e, item.href)}
                       className="text-sm font-medium transition-colors hover:text-primary"
                     >
                       {item.name}
