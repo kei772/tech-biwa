@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
@@ -31,19 +32,21 @@ export default function RootLayout({
         <link rel="icon" href={`${basePath}/logo.png`} />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Analytics />
-        </ThemeProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <Analytics />
+          </ThemeProvider>
+        </Suspense>
       </body>
     </html>
   )
