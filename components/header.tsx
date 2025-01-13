@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useTheme } from "next-themes"
 import { Menu, Moon, Sun } from 'lucide-react'
 import { Button } from "@/components/ui/button"
@@ -45,6 +46,13 @@ export function Header() {
         <nav className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/logo.png"
+                alt="tech-biwa logo"
+                width={32}
+                height={32}
+                className="h-8 w-auto"
+              />
               <span className="font-bold text-xl">tech-biwa</span>
             </Link>
             <div className="hidden gap-6 md:flex">
