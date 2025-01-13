@@ -16,6 +16,7 @@ import {
 export function Header() {
   const { theme, setTheme } = useTheme()
   const [isOpen, setIsOpen] = React.useState(false)
+  const basePath = process.env.NODE_ENV === 'production' ? '/tech-biwa' : ''
 
   const navigation = [
     { name: "About", href: "about" },
@@ -47,7 +48,7 @@ export function Header() {
           <div className="flex items-center gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/logo.png"
+                src={`${basePath}/logo.png`}
                 alt="tech-biwa logo"
                 width={32}
                 height={32}
