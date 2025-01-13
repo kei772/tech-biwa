@@ -22,8 +22,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="container py-24 sm:py-32">
-      <h2 className="mb-16 text-3xl font-bold tracking-tight sm:text-4xl">FAQ</h2>
+    <div className="px-4 sm:px-6 lg:px-8">
       <Accordion type="single" collapsible className="w-full max-w-2xl mx-auto">
         {faqs.map((faq, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
@@ -32,7 +31,6 @@ export function FAQ() {
           </AccordionItem>
         ))}
       </Accordion>
-    </section>
+    </div>
   )
 }
-

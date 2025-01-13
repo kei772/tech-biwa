@@ -15,7 +15,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+    <section className="relative flex h-[calc(100vh-4rem)] w-full items-center justify-center overflow-hidden">
       <video
         ref={videoRef}
         autoPlay
@@ -29,7 +29,7 @@ export function Hero() {
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 bg-background/60 dark:bg-background/80" aria-hidden="true" />
-      <div className="container relative z-20 mx-auto px-4 text-center">
+      <div className="relative z-20 mx-auto max-w-5xl px-4 text-center">
         <h1 className="animate-in mb-6 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
           最先端テクノロジーで
           <br />
@@ -58,4 +58,3 @@ export function Hero() {
     </section>
   )
 }
-

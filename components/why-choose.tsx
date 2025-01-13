@@ -21,24 +21,18 @@ const features = [
 
 export function WhyChoose() {
   return (
-    <section id="why-choose" className="container py-24 sm:py-32 bg-muted/50">
-      <h2 className="mb-16 text-3xl font-bold tracking-tight sm:text-4xl">
-        Why Choose Us?
-      </h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {features.map((feature) => (
-          <Card key={feature.title} className="bg-background">
-            <CardHeader>
-              <feature.icon className="h-12 w-12 text-primary" />
-              <CardTitle className="mt-4">{feature.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 px-4 sm:px-6 lg:px-8">
+      {features.map((feature) => (
+        <Card key={feature.title} className="bg-background">
+          <CardHeader>
+            <feature.icon className="h-12 w-12 text-primary" />
+            <CardTitle className="mt-4">{feature.title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground">{feature.description}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
   )
 }
-
