@@ -30,14 +30,14 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-muted/40">
-      <div className="container py-8 md:py-12">
-        <div className="flex flex-col items-center gap-6">
-          <nav className="flex gap-6">
+      <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-12">
+        <div className="flex flex-col items-center justify-center gap-6">
+          <nav className="flex justify-center gap-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                className="text-sm text-center text-muted-foreground transition-colors hover:text-primary"
               >
                 {item.name}
               </Link>
@@ -50,14 +50,14 @@ export function Footer() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-primary"
+                className="text-center text-muted-foreground transition-colors hover:text-primary"
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-5 w-5" />
               </Link>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-center text-muted-foreground">
             © 2024 tech-biwa. All rights reserved.
           </p>
         </div>
