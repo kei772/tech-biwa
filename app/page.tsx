@@ -9,12 +9,21 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Hero />
-      <About />
-      <Services />
-      <WhyChoose />
-      <FAQ />
-      <Contact />
+      <section id="about">
+        <About />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="why-choose">
+        <WhyChoose />
+      </section>
+      <section id="faq">
+        <FAQ />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </main>
   )
 }
-
