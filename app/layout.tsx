@@ -12,11 +12,7 @@ export const metadata = {
   title: "tech-biwa | システム開発・AI導入・研修",
   description: "システム開発からAI導入、実践的な研修まで、スピード感をもってサポート。最新の生成AI技術を活用してビジネスを加速させます。",
   keywords: "システム開発, AI導入, 研修, 生成AI, ChatGPT",
-  metadataBase: new URL(
-    process.env.NODE_ENV === 'production'
-      ? 'https://kei772.github.io/tech-biwa'
-      : 'http://localhost:3000'
-  ),
+  metadataBase: new URL('https://www.tech-biwa.jp'),
 }
 
 export default function RootLayout({
@@ -24,12 +20,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const basePath = process.env.NODE_ENV === 'production' ? '/tech-biwa' : ''
-
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
-        <link rel="icon" href={`${basePath}/logo.png`} />
+        <link rel="icon" href="/logo.png" />
       </head>
       <body className={inter.className}>
         <Suspense fallback={<div>Loading...</div>}>

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // 開発環境ではbasePathを適用しない
-  basePath: process.env.NODE_ENV === 'production' ? '/tech-biwa' : '',
+  // カスタムドメインを使用するのでbasePathは不要
+  basePath: '',
   eslint: {
     ignoreDuringBuilds: true,
   },
