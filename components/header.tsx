@@ -55,13 +55,13 @@ export function Header() {
               />
               <span className="font-bold text-xl">tech-biwa</span>
             </Link>
-            <div className="hidden gap-6 md:flex">
+            <div className="hidden gap-6 md:flex md:items-center">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={`#${item.href}`}
                   onClick={(e) => handleClick(e, item.href)}
-                  className="text-sm font-medium transition-colors hover:text-primary"
+                  className="flex items-center text-sm font-medium transition-colors hover:text-primary"
                 >
                   {item.name}
                 </a>
