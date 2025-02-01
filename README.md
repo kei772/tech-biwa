@@ -55,7 +55,7 @@ npm run build
 
 ## お問い合わせ
 
-- [お問い合わせフォーム](https://docs.google.com/forms/d/1UWWehrs7Z_MPH3QVjMA6ivZ0ApJJo6AP4HA5FPbDdUs/viewform)
+- [お問い合わせフォーム](https://docs.google.com/forms/d/e/1FAIpQLSfqSUx-h4oAAEW4-VAjBjmtVk4N0ld-BcW3EkqJHnN9hPdxuw/viewform?usp=header)
 - [X (Twitter)](https://x.com/ola_jp_ai)
 - [note](https://note.com/muccccchiiii)
 

@@ -12,7 +12,7 @@ export function Contact() {
       </p>
       <Button asChild size="lg">
         <Link
-          href="https://docs.google.com/forms/d/1UWWehrs7Z_MPH3QVjMA6ivZ0ApJJo6AP4HA5FPbDdUs/viewform"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfqSUx-h4oAAEW4-VAjBjmtVk4N0ld-BcW3EkqJHnN9hPdxuw/viewform?usp=header"
           target="_blank"
           rel="noopener noreferrer"
         >
